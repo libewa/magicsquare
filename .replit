@@ -1,0 +1,4 @@
+entrypoint = "Sources/magicsquare/main.swift"
+compile = "swift build"
+run = ".build/x86_64-unknown-linux-gnu/debug/magicsquare"
+modules = []
