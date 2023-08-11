@@ -4,6 +4,10 @@ enum MagicSquareError: Error {
 
 var args = CommandLine.arguments
 args.remove(at: 0)
+if args.contains("--notable") {
+  let notable = true
+  args.remove(at: find(args, "--notable")!)
+}
 
 guard args.count <= 5 else {
   print("Please provide a maximum of 4 arguments! (\(args.count): \(args) given)")
@@ -47,4 +51,11 @@ func rendered(_ square: [[Int]]) -> String {
 
 
 var magic = calcMagic(num[0], num[1], num[2], num[3])
-print(rendered(magic))
+if notable {
+  print(magic[0])
+  print(magic[1])
+  print(magic[2])
+  print(magic[3])
+} else {
+  print(rendered(magic))
+}
