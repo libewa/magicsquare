@@ -6,7 +6,9 @@ var args = CommandLine.arguments
 args.remove(at: 0)
 if args.contains("--notable") {
   let notable = true
-  args.remove(at: find(args, "--notable")!)
+  args.remove(at: args.indexOf("--notable")!)
+} else {
+  let notable = false
 }
 
 guard args.count <= 5 else {
