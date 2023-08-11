@@ -34,7 +34,7 @@ func numberWithSpacing(_ num: Int) -> String {
 }
 
 func rendered(_ square: [[Int]]) -> String {
-  var rendered = """
+  return """
   \(numberWithSpacing(square[0][0]))|\(numberWithSpacing(square[0][1]))|\(numberWithSpacing(square[0][2]))|\(numberWithSpacing(square[0][3]))
   ===============
   \(numberWithSpacing(square[1][0]))|\(numberWithSpacing(square[1][1]))|\(numberWithSpacing(square[1][2]))|\(numberWithSpacing(square[1][3]))
@@ -43,7 +43,6 @@ func rendered(_ square: [[Int]]) -> String {
   ===============
   \(numberWithSpacing(square[3][0]))|\(numberWithSpacing(square[3][1]))|\(numberWithSpacing(square[3][2]))|\(numberWithSpacing(square[3][3]))
   """
-  return rendered
 }
 
 
