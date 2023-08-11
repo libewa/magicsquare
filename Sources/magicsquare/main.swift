@@ -6,7 +6,7 @@ var args = CommandLine.arguments
 args.remove(at: 0)
 if args.contains("--notable") {
   let notable = true
-  args.remove(at: args.indexOf("--notable")!)
+  args.remove(at: args.firstIndex(of: "--notable")!)
 } else {
   let notable = false
 }
