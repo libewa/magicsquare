@@ -29,8 +29,23 @@ func calcMagic(_ a: Int, _ b: Int, _ c: Int, _ d: Int) -> [[Int]] {
   ]
 }
 
+func numberWithSpacing(_ num: Int) -> String {
+  return "\(num < 10 && num >= 0 ? "  " : num < 100 ? " " : "")\(num)"
+}
+
+func rendered(_ square: [[Int]]) -> String {
+  var rendered = """
+  \(numberWithSpacing(square[0][0]))|\(numberWithSpacing(square[0][1]))|\(numberWithSpacing(square[0][2]))|\(numberWithSpacing(square[0][3]))
+  ===============
+  \(numberWithSpacing(square[1][0]))|\(numberWithSpacing(square[1][1]))|\(numberWithSpacing(square[1][2]))|\(numberWithSpacing(square[1][3]))
+  ===============
+  \(numberWithSpacing(square[2][0]))|\(numberWithSpacing(square[2][1]))|\(numberWithSpacing(square[2][2]))|\(numberWithSpacing(square[2][3]))
+  ===============
+  \(numberWithSpacing(square[3][0]))|\(numberWithSpacing(square[3][1]))|\(numberWithSpacing(square[3][2]))|\(numberWithSpacing(square[3][3]))
+  """
+  return rendered
+}
+
+
 var magic = calcMagic(num[0], num[1], num[2], num[3])
-print(magic[0])
-print(magic[1])
-print(magic[2])
-print(magic[3])
+print(rendered(magic))
