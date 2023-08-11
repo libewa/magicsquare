@@ -2,15 +2,14 @@ enum MagicSquareError: Error {
   case tooManyArgs
 }
 
+var notable = false
+
 var args = CommandLine.arguments
 args.remove(at: 0)
 if args.contains("--notable") {
-  let notable = true
+  notable = true
   args.remove(at: args.firstIndex(of: "--notable")!)
-} else {
-  let notable = false
 }
-
 guard args.count <= 5 else {
   print("Please provide a maximum of 4 arguments! (\(args.count): \(args) given)")
   throw MagicSquareError.tooManyArgs
