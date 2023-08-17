@@ -1,0 +1,52 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug magicsquare",
+            "program": "${workspaceFolder:magicsquare}\\.build/debug/magicsquare",
+            "args": [],
+            "cwd": "${workspaceFolder:magicsquare}",
+            "preLaunchTask": "swift: Build Debug magicsquare"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release magicsquare",
+            "program": "${workspaceFolder:magicsquare}\\.build/release/magicsquare",
+            "args": [],
+            "cwd": "${workspaceFolder:magicsquare}",
+            "preLaunchTask": "swift: Build Release magicsquare"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug mqkit",
+            "program": "${workspaceFolder:magicsquare}\\.build/debug/mqkit",
+            "args": [],
+            "cwd": "${workspaceFolder:magicsquare}",
+            "preLaunchTask": "swift: Build Debug mqkit"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release mqkit",
+            "program": "${workspaceFolder:magicsquare}\\.build/release/mqkit",
+            "args": [],
+            "cwd": "${workspaceFolder:magicsquare}",
+            "preLaunchTask": "swift: Build Release mqkit"
+        }
+    ]
+}
