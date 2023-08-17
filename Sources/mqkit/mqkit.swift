@@ -3,10 +3,16 @@
 
 public enum MQMagicSquareError: Error {
     case tooManyArgs
+    case modifiedLargerThanModifier
 }
 
-func numberWithSpacing(_ num: Int) -> String {
-    return "\(num < 10 && num >= 0 ? "  " : num < 100 ? " " : "")\(num)"
+public func addPadding(to num: Int, targetLength: Int) throws -> String {
+  let str = String(num)
+  let currentLength = str.count
+  guard currentLength <= targetLength else {
+    throw MQMagicSquareError.modifiedLargerThanModifier
+  }
+  return String(repeating: " ", count: targetLength - currentLength) + str
 }
 
 public func MQCalcMagic(_ a: Int, _ b: Int, _ c: Int, _ d: Int) -> [[Int]] {
@@ -20,12 +26,12 @@ public func MQCalcMagic(_ a: Int, _ b: Int, _ c: Int, _ d: Int) -> [[Int]] {
 
 public func MQRenderSquare(_ square: [[Int]]) -> String {
     return """
-    \(numberWithSpacing(square[0][0]))|\(numberWithSpacing(square[0][1]))|\(numberWithSpacing(square[0][2]))|\(numberWithSpacing(square[0][3]))
+    \(try! addPadding(to: square[0][0], targetLength: 3))|\(try! addPadding(to: square[0][1], targetLength: 3))|\(try! addPadding(to: square[0][2], targetLength: 3))|\(try! addPadding(to: square[0][3], targetLength: 3))
     ===============
-    \(numberWithSpacing(square[1][0]))|\(numberWithSpacing(square[1][1]))|\(numberWithSpacing(square[1][2]))|\(numberWithSpacing(square[1][3]))
+    \(try! addPadding(to: square[1][0], targetLength: 3))|\(try! addPadding(to: square[1][1], targetLength: 3))|\(try! addPadding(to: square[1][2], targetLength: 3))|\(try! addPadding(to: square[1][3], targetLength: 3))
     ===============
-    \(numberWithSpacing(square[2][0]))|\(numberWithSpacing(square[2][1]))|\(numberWithSpacing(square[2][2]))|\(numberWithSpacing(square[2][3]))
+    \(try! addPadding(to: square[2][0], targetLength: 3))|\(try! addPadding(to: square[2][1], targetLength: 3))|\(try! addPadding(to: square[2][2], targetLength: 3))|\(try! addPadding(to: square[2][3], targetLength: 3))
     ===============
-    \(numberWithSpacing(square[3][0]))|\(numberWithSpacing(square[3][1]))|\(numberWithSpacing(square[3][2]))|\(numberWithSpacing(square[3][3]))
+    \(try! addPadding(to: square[3][0], targetLength: 3))|\(try! addPadding(to: square[3][1], targetLength: 3))|\(try! addPadding(to: square[3][2], targetLength: 3))|\(try! addPadding(to: square[3][3], targetLength: 3))
     """
 }
