@@ -19,11 +19,9 @@ let package = Package(
         .executableTarget(
             name: "magicsquare",
             dependencies: ["mqkit"]),
-        .target(name: "mqkit")
-      /*
+        .target(name: "mqkit"),
         .testTarget(
             name: "magicsquareTests",
-            dependencies: ["mqkit"]),
-      */
+            dependencies: ["mqkit"])
     ]
 )
