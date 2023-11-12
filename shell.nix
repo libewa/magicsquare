@@ -6,6 +6,7 @@
         swiftPackages.swiftpm
         swiftPackages.Foundation
         swiftPackages.stdenv
+        swiftpm2nix
         sourcekit-lsp
     ];
 }
