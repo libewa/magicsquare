@@ -1,8 +1,11 @@
 { pkgs }: {
-	deps = [
+	deps = with pkgs; [
 		pkgs.nodePackages.prettier
-		pkgs.swift
-    pkgs.gtk4
-    pkgs.clang
+		swift
+        swiftPackages.swiftpm
+        swiftPackages.Foundation
+        swiftPackages.stdenv
+        sourcekit-lsp
+    	clang
 	];
 }
