@@ -1,5 +1,4 @@
 import XCTest
-import class Foundation.Bundle
 import mqkit
 
 func arrSum(_ arr: [Int]) -> Int {
