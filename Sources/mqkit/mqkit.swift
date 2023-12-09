@@ -19,10 +19,11 @@ public func MQCalcMagic(_ a: Int, _ b: Int, _ c: Int, _ d: Int) -> [[Int]] {
     return [
         [a, b, c, d],
         [c-1, d+1, a-1, b+1],
-        [d+1, c+1, b-1, b-1],
+        [d+1, c+1, b-1, b-2],
         [b, a-2, d+2, c]
     ]
 }
+
 
 public func MQRenderSquare(_ square: [[Int]]) -> String {
     return """
