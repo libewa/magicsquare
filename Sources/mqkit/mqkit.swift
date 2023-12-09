@@ -6,13 +6,15 @@ public enum MQMagicSquareError: Error {
     case modifiedLargerThanModifier
 }
 
-public func addPadding(to num: Int, targetLength: Int) throws -> String {
-  let str = String(num)
-  let currentLength = str.count
-  guard currentLength <= targetLength else {
-    throw MQMagicSquareError.modifiedLargerThanModifier
+extension Int {
+  func toPaddedString(targetLength: Int) throws -> String {
+    let str = String(self)
+    let currentLength = str.count
+    guard currentLength <= targetLength else {
+      throw MQMagicSquareError.modifiedLargerThanModifier
+    }
+    return String(repeating: " ", count: targetLength - currentLength) + str
   }
-  return String(repeating: " ", count: targetLength - currentLength) + str
 }
 
 public func MQCalcMagic(_ a: Int, _ b: Int, _ c: Int, _ d: Int) -> [[Int]] {
@@ -24,15 +26,18 @@ public func MQCalcMagic(_ a: Int, _ b: Int, _ c: Int, _ d: Int) -> [[Int]] {
     ]
 }
 
+private func addPadding(to num: Int, targetLength: Int) -> String {
+  try! num.toPaddedString(targetLength: targetLength)
+}
 
 public func MQRenderSquare(_ square: [[Int]]) -> String {
     return """
-    \(try! addPadding(to: square[0][0], targetLength: 3))|\(try! addPadding(to: square[0][1], targetLength: 3))|\(try! addPadding(to: square[0][2], targetLength: 3))|\(try! addPadding(to: square[0][3], targetLength: 3))
+    \(addPadding(to: square[0][0], targetLength: 3))|\(addPadding(to: square[0][1], targetLength: 3))|\(addPadding(to: square[0][2], targetLength: 3))|\(addPadding(to: square[0][3], targetLength: 3))
     ===============
-    \(try! addPadding(to: square[1][0], targetLength: 3))|\(try! addPadding(to: square[1][1], targetLength: 3))|\(try! addPadding(to: square[1][2], targetLength: 3))|\(try! addPadding(to: square[1][3], targetLength: 3))
+    \(addPadding(to: square[1][0], targetLength: 3))|\(addPadding(to: square[1][1], targetLength: 3))|\(addPadding(to: square[1][2], targetLength: 3))|\(addPadding(to: square[1][3], targetLength: 3))
     ===============
-    \(try! addPadding(to: square[2][0], targetLength: 3))|\(try! addPadding(to: square[2][1], targetLength: 3))|\(try! addPadding(to: square[2][2], targetLength: 3))|\(try! addPadding(to: square[2][3], targetLength: 3))
+    \(addPadding(to: square[2][0], targetLength: 3))|\(addPadding(to: square[2][1], targetLength: 3))|\(addPadding(to: square[2][2], targetLength: 3))|\(addPadding(to: square[2][3], targetLength: 3))
     ===============
-    \(try! addPadding(to: square[3][0], targetLength: 3))|\(try! addPadding(to: square[3][1], targetLength: 3))|\(try! addPadding(to: square[3][2], targetLength: 3))|\(try! addPadding(to: square[3][3], targetLength: 3))
+    \(addPadding(to: square[3][0], targetLength: 3))|\(addPadding(to: square[3][1], targetLength: 3))|\(addPadding(to: square[3][2], targetLength: 3))|\(addPadding(to: square[3][3], targetLength: 3))
     """
 }
