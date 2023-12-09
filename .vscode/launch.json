@@ -7,7 +7,7 @@
                 "swift"
             ],
             "name": "Debug magicsquare",
-            "program": "${workspaceFolder:magicsquare}\\.build/debug/magicsquare",
+            "program": "${workspaceFolder:magicsquare}/.build/debug/magicsquare",
             "args": [],
             "cwd": "${workspaceFolder:magicsquare}",
             "preLaunchTask": "swift: Build Debug magicsquare"
@@ -19,7 +19,7 @@
                 "swift"
             ],
             "name": "Release magicsquare",
-            "program": "${workspaceFolder:magicsquare}\\.build/release/magicsquare",
+            "program": "${workspaceFolder:magicsquare}/.build/release/magicsquare",
             "args": [],
             "cwd": "${workspaceFolder:magicsquare}",
             "preLaunchTask": "swift: Build Release magicsquare"
