@@ -1,14 +1,14 @@
 import mqkit
 
-var notable = false
+var raw = false
 
 var args = CommandLine.arguments
 args.remove(at: 0)
 
 // check for and remove notable flags
-while args.contains("--notable") {
-  notable = true
-  args.remove(at: args.firstIndex(of: "--notable")!)
+while args.contains("--raw") {
+  raw = true
+  args.remove(at: args.firstIndex(of: "--raw")!)
 }
 
 guard args.count <= 4 else {
@@ -29,11 +29,8 @@ for _ in args.count...4 {
 }
 
 var magic = MQCalcMagic(num[0], num[1], num[2], num[3])
-if notable {
-  print(magic[0])
-  print(magic[1])
-  print(magic[2])
-  print(magic[3])
+if raw {
+  print(magic)
 } else {
   print(MQRenderSquare(magic))
 }
